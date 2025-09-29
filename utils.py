@@ -42,11 +42,11 @@ class FileParcours:
                 self.explorer_frame.after(0, lambda full_path = self.full_path, item=item: self._add_file_btn(full_path, item))
 
     def _add_file_btn(self, full_path, item):
-        fileBtn = tk.Button(self.explorer_frame, text=f"{item}",borderwidth=0, bg="red",command=lambda full_path = full_path: self.change_file(full_path))
+        fileBtn = tk.Button(self.explorer_frame, text=f"{item}",borderwidth=0, bg="#2e2e2e", fg="#dcdcdc",command=lambda full_path = full_path: self.change_file(full_path))
         fileBtn.pack(fill="x")
     
     def __add_dir_menubtn(self, full_path, item):
-        mb = tk.Menubutton(self.explorer_frame, text=item, bg="lightblue", borderwidth=0)
+        mb = tk.Menubutton(self.explorer_frame, text=item, bg="#232323", fg="#dcdcdc", borderwidth=0)
         mb.menu = tk.Menu(mb, tearoff=0)
         mb["menu"] = mb.menu       
         self._populate_menu(full_path, mb.menu)
@@ -121,10 +121,10 @@ class FileParcours:
             self.input_text.tag_add("comment", start, end)
 
         # Appliquer les couleurs
-        self.input_text.tag_config("keyword", foreground="blue")
-        self.input_text.tag_config("builtin", foreground="purple")
-        self.input_text.tag_config("string", foreground="green")
-        self.input_text.tag_config("comment", foreground="gray")
+        self.input_text.tag_config("keyword", foreground="purple")
+        self.input_text.tag_config("builtin", foreground="blue")
+        self.input_text.tag_config("string", foreground="orange")
+        self.input_text.tag_config("comment", foreground="green")
 
     def on_text_change(self, event=None):
         self.highlight_python()
